@@ -34,18 +34,12 @@ const Footer = () => {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and
-            set aside for 10 minutes.
+            The Atlantic, Does It Matter Where You Go to College ?
+            "https://www.theatlantic.com/ideas/archive/2018/12/does-it-matter-where-you-go-college/577816/
           </Typography>
           <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet
-            over medium-high heat. Add chicken, shrimp and chorizo, and cook,
-            stirring occasionally until lightly browned, 6 to 8 minutes.
-            Transfer shrimp to a large plate and set aside, leaving chicken and
-            chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes,
-            onion, salt and pepper, and cook, stirring often until thickened and
-            fragrant, about 10 minutes. Add saffron broth and remaining 4 1/2
-            cups chicken broth; bring to a boil.
+            Emsi, 'How Your School Affects Where You Live' https:
+            //www.economicmodeling.com/how-your-school-affects-where-you-live/
           </Typography>
           <Typography paragraph>
             Add rice and stir very gently to distribute. Top with artichokes and

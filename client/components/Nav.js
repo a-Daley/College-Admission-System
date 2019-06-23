@@ -16,7 +16,8 @@ const useStyles = makeStyles(theme => ({
     color: 'white'
   },
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
+    color: 'white'
   },
   title: {
     flexGrow: 1,
@@ -43,7 +44,7 @@ const Nav = () => {
             The Game of Life After College
           </Typography>
           <Link to="/">
-            <Button color="inherit">Home</Button>
+            <Button color="secondary">Home</Button>
           </Link>
         </Toolbar>
       </AppBar>

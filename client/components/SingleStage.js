@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
 import {makeStyles} from '@material-ui/core/styles'
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import Typography from '@material-ui/core/Typography'
-import Button from '@material-ui/core/Button'
-import CardActions from '@material-ui/core/CardActions'
+import {
+  Card,
+  CardContent,
+  Typography,
+  Button,
+  CardActions
+} from '@material-ui/core'
 
-const SingleStage = ({topic}) => {
+const SingleStage = props => {
   const classes = useStyles()
   const bull = <span className={classes.bullet}>•</span>
 

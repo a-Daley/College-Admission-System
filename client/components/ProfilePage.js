@@ -1,4 +1,6 @@
 import React from 'react'
+import {getStats} from '../store/user-stats'
+import {connect} from 'react-redux'
 import {
   Card,
   InputLabel,
@@ -25,12 +27,14 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const ProfilePage = () => {
+const ProfilePage = props => {
   const classes = useStyles()
   const [values, setValues] = React.useState({
     age: 0,
     gender: '',
-    collegeTier: ''
+    race: '',
+    collegeTier: '',
+    incomeLevel: ''
   })
 
   // const inputLabel = React.useRef(null);
@@ -50,6 +54,7 @@ const ProfilePage = () => {
   function handleSubmit(event) {
     event.preventDefault()
     console.log(values)
+    props.setStats(values)
   }
 
   return (
@@ -64,12 +69,27 @@ const ProfilePage = () => {
             inputProps={{id: 'age-required'}}
             className={classes.selectEmpty}
           >
-            <MenuItem value="">
-              <em>None</em>
+            <MenuItem value={20}>10</MenuItem>
+            <MenuItem value={20}>20</MenuItem>
+            <MenuItem value={30}>30</MenuItem>
+          </Select>
+          <FormHelperText>Required</FormHelperText>
+        </FormControl>
+
+        <FormControl required className={classes.formControl}>
+          <InputLabel htmlFor="race-required">Race</InputLabel>
+          <Select
+            value={values.race}
+            onChange={handleChange}
+            name="race"
+            inputProps={{id: 'race-required'}}
+            className={classes.selectEmpty}
+          >
+            <MenuItem value="African-American">
+              Black/ African-American
             </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            <MenuItem value="White">White</MenuItem>
+            <MenuItem value="Asian-American">Asian-American</MenuItem>
           </Select>
           <FormHelperText>Required</FormHelperText>
         </FormControl>
@@ -85,9 +105,6 @@ const ProfilePage = () => {
             }}
             className={classes.selectEmpty}
           >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
             <MenuItem value="female">Female</MenuItem>
             <MenuItem value="male">Male</MenuItem>
             <MenuItem value="other">Other</MenuItem>
@@ -108,19 +125,39 @@ const ProfilePage = () => {
             }}
             className={classes.selectEmpty}
           >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
             <MenuItem value={5}>Top 5</MenuItem>
             <MenuItem value={10}>Top 50</MenuItem>
             <MenuItem value={100}>Top 100</MenuItem>
           </Select>
           <FormHelperText>Required</FormHelperText>
         </FormControl>
+
+        <FormControl required className={`${classes.formControl} content`}>
+          <InputLabel htmlFor="incomeLevel-required">Income Band</InputLabel>
+          <Select
+            value={values.incomeLevel}
+            onChange={handleChange}
+            name="incomeLevel"
+            inputProps={{
+              id: 'incomeLevel-required'
+            }}
+            className={classes.selectEmpty}
+          >
+            <MenuItem value="lower">Lower</MenuItem>
+            <MenuItem value="middle class">Middle Class</MenuItem>
+            <MenuItem value="upper class">Upper Class</MenuItem>
+          </Select>
+          <FormHelperText>Required</FormHelperText>
+        </FormControl>
+
         <Button type="submit">Submit</Button>
       </form>
     </Card>
   )
 }
 
-export default ProfilePage
+const mapDispatchToProps = dispatch => ({
+  setStats: stats => dispatch(getStats(stats))
+})
+
+export default connect(null, mapDispatchToProps)(ProfilePage)

@@ -5,17 +5,23 @@ import history from '../history'
  * ACTION TYPES
  */
 const GET_STATS = 'GET_STATS'
-const REMOVE_USER = 'REMOVE_USER'
 
 /**
  * INITIAL STATE
  */
-const defaultStats = {}
+const defaultStats = {
+  age: 0,
+  gender: '',
+  incomeLevel: '',
+  collegeTier: 0,
+  race: '',
+  success: 100
+}
 
 /**
  * ACTION CREATORS
  */
-const getUser = user => ({type: GET_USER, user})
+export const getStats = stats => ({type: GET_STATS, stats})
 const removeUser = () => ({type: REMOVE_USER})
 
 /**
@@ -59,12 +65,18 @@ export const logout = () => async dispatch => {
 /**
  * REDUCER
  */
-export default function(state = defaultUser, action) {
+export default function(state = defaultStats, action) {
   switch (action.type) {
-    case GET_USER:
-      return action.user
-    case REMOVE_USER:
-      return defaultUser
+    case GET_STATS:
+      return {
+        ...state,
+        gender: action.stats.gender,
+        age: action.stats.age,
+        incomeLevel: action.stats.incomeLevel,
+        collegeTier: action.stats.collegeTier,
+        race: action.stats.race,
+        success: state.success
+      }
     default:
       return state
   }
