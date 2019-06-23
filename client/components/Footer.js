@@ -29,7 +29,7 @@ const Footer = () => {
         >
           <ExpandMoreIcon />
         </IconButton>
-        <Typography variant="subtitle">Methodology & Data</Typography>
+        <Typography variant="subtitle1">Methodology & Data</Typography>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>

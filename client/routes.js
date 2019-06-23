@@ -16,9 +16,9 @@ class Routes extends Component {
   render() {
     return (
       <Switch>
-        <Route component={GameBoard} />
         <Route exact path="/profile" component={ProfilePage} />
         <Route exact path="/stage-one" component={SingleStage} />
+        <Route component={GameBoard} />
       </Switch>
     )
   }

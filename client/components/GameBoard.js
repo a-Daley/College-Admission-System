@@ -12,7 +12,7 @@ const GameBoard = () => {
   const bull = <span className={classes.bullet}>•</span>
 
   return (
-    <div>
+    <div className="gameboard">
       <StartButton />
       <Card raised={true}>
         <CardContent>

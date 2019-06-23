@@ -4,13 +4,13 @@ import history from '../history'
 /**
  * ACTION TYPES
  */
-const GET_USER = 'GET_USER'
+const GET_STATS = 'GET_STATS'
 const REMOVE_USER = 'REMOVE_USER'
 
 /**
  * INITIAL STATE
  */
-const defaultUser = {}
+const defaultStats = {}
 
 /**
  * ACTION CREATORS
