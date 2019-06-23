@@ -4,5 +4,8 @@
  * having to figure out which file they belong to!
  */
 export {default as Navbar} from './navbar'
-export {default as UserHome} from './user-home'
-export {Login, Signup} from './auth-form'
+export {default as GameBoard} from './GameBoard'
+export {default as MainChart} from './MainChart'
+export {default as ProfilePage} from './ProfilePage'
+export {default as Footer} from './Footer'
+export {default as Sidebar} from './Sidebar'

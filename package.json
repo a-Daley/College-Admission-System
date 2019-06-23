@@ -1,7 +1,7 @@
 {
-  "name": "boilermaker",
-  "version": "2.0.0",
-  "description": "Some boilerplate code to get you started - get shakin'!",
+  "name": "college-admission-system",
+  "version": "1.0.0",
+  "description": "A look at how college admissions decisions fit into the larger systems of our country",
   "engines": {
     "node": ">= 7.0.0"
   },
@@ -38,7 +38,7 @@
       "git add"
     ]
   },
-  "author": "Fullstack Academy of Code",
+  "author": "April Daley",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.1",

@@ -1,3 +1,25 @@
+* {
+  color: rgb(100, 84, 78);
+}
+
+.container {
+  display: flex;
+  background-color: rgb(225, 213, 208);
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.content {
+  align-self: center;
+  width: 100%;
+  display: flex;
+}
+
+.sidebar {
+  padding: 10px;
+  width: 40%;
+}
+
 body {
   font-family: sans-serif;
 }
@@ -15,7 +37,7 @@ nav a {
   margin: 1em;
 }
 
-form div {
-  margin: 1em;
-  display: inline-block;
+.nav {
+  justify-content: flex-end;
+  padding: 0px;
 }

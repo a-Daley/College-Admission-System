@@ -1,13 +1,17 @@
 import React from 'react'
 
-import {Navbar} from './components'
+import {Navbar, Sidebar, Footer} from './components'
 import Routes from './routes'
 
 const App = () => {
   return (
-    <div>
+    <div className="container">
       <Navbar />
-      <Routes />
+      <div className="content">
+        <Sidebar />
+        <Routes />
+      </div>
+      <Footer />
     </div>
   )
 }

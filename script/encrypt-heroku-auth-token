@@ -20,7 +20,7 @@ export REPO=$(git remote get-url origin | \
 # This function provides a nicer error message in some cases
 function public_key_not_found {
     cat <<-"HEREDOC"
-	Boilermaker Error: Unable to download public key.
+	College Admisions Game Error: Unable to download public key.
 	Make sure your origin remote (try git remote -v) matches your GitHub repo url.
 	The Travis url for the public key is based on your GitHub repo url.
 	These can fall out of sync if you rename your GitHub organization or repo.
