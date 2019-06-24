@@ -100,7 +100,6 @@ const StartButton = () => {
           width: image.width
         }}
         onClick={() => {
-          console.log('button is working')
           event.preventDefault()
         }}
       >

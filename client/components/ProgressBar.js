@@ -1,14 +1,7 @@
 import React from 'react'
-import {makeStyles} from '@material-ui/core/styles'
-import CircularProgress from '@material-ui/core/CircularProgress'
+import {makeStyles, CircularProgress} from '@material-ui/core'
 
-const useStyles = makeStyles(theme => ({
-  progress: {
-    margin: theme.spacing(2)
-  }
-}))
-
-export default function CircularIndeterminate() {
+const ProgressBar = () => {
   const classes = useStyles()
 
   return (
@@ -18,3 +11,11 @@ export default function CircularIndeterminate() {
     </div>
   )
 }
+
+const useStyles = makeStyles(theme => ({
+  progress: {
+    margin: theme.spacing(2)
+  }
+}))
+
+export default ProgressBar

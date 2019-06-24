@@ -1,6 +1,7 @@
 import React from 'react'
-import {getStats} from '../store/user-stats'
+import {getStats} from '../store/profile-stats'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import {
   Card,
   InputLabel,
@@ -34,15 +35,8 @@ const ProfilePage = props => {
     gender: '',
     race: '',
     collegeTier: '',
-    incomeLevel: ''
+    income: ''
   })
-
-  // const inputLabel = React.useRef(null);
-  // const [labelWidth, setLabelWidth] = React.useState(0)
-
-  //   React.useEffect(() => {
-  //     setLabelWidth(inputLabel.current.offsetWidth);
-  //   }, []);
 
   function handleChange(event) {
     setValues(oldValues => ({
@@ -53,7 +47,6 @@ const ProfilePage = props => {
 
   function handleSubmit(event) {
     event.preventDefault()
-    console.log(values)
     props.setStats(values)
   }
 
@@ -69,12 +62,12 @@ const ProfilePage = props => {
             inputProps={{id: 'age-required'}}
             className={classes.selectEmpty}
           >
-            <MenuItem value="20">"20 - 29"</MenuItem>
-            <MenuItem value="30">"30 - 39"</MenuItem>
-            <MenuItem value="40">"40 - 49"</MenuItem>
-            <MenuItem value="50">"50 - 59"</MenuItem>
-            <MenuItem value="60">"60 - 69"</MenuItem>
-            <MenuItem value="70">"70 - 79"</MenuItem>
+            <MenuItem value="20">20 - 29</MenuItem>
+            <MenuItem value="30">30 - 39</MenuItem>
+            <MenuItem value="40">40 - 49</MenuItem>
+            <MenuItem value="50">50 - 59</MenuItem>
+            <MenuItem value="60">60 - 69</MenuItem>
+            <MenuItem value="70">70 - 79</MenuItem>
           </Select>
           <FormHelperText>Required</FormHelperText>
         </FormControl>
@@ -88,12 +81,14 @@ const ProfilePage = props => {
             inputProps={{id: 'race-required'}}
             className={classes.selectEmpty}
           >
-            <MenuItem value="African-American">Black/African-American</MenuItem>
-            <MenuItem value="White">White/Caucasian</MenuItem>
-            <MenuItem value="Asian-American">
+            <MenuItem value="Black/African-American">
+              Black/African-American
+            </MenuItem>
+            <MenuItem value="White/Caucasian">White/Caucasian</MenuItem>
+            <MenuItem value="Pacific Islander/Asian-American">
               Pacific Islander/Asian-American
             </MenuItem>
-            <MenuItem value="Asian-American">Native American</MenuItem>
+            <MenuItem value="Native American">Native American</MenuItem>
             <MenuItem value="Hispanic/Latino">Hispanic/Latino</MenuItem>
           </Select>
           <FormHelperText>Required</FormHelperText>
@@ -130,34 +125,33 @@ const ProfilePage = props => {
             className={classes.selectEmpty}
           >
             <MenuItem value="elite college">Elite Private College</MenuItem>
-            <MenuItem value="state university">"state university"</MenuItem>
-            <MenuItem value="community college">"community college"</MenuItem>
-            <MenuItem value="online college">"online college"</MenuItem>
+            <MenuItem value="state university">State University</MenuItem>
+            <MenuItem value="community college">Community College</MenuItem>
+            <MenuItem value="online college">Online College</MenuItem>
           </Select>
           <FormHelperText>Required</FormHelperText>
         </FormControl>
 
         <FormControl required className={`${classes.formControl} content`}>
-          <InputLabel htmlFor="incomeLevel-required">
-            Parents' Income
-          </InputLabel>
+          <InputLabel htmlFor="income-required">Parents' Income</InputLabel>
           <Select
-            value={values.incomeLevel}
+            value={values.income}
             onChange={handleChange}
-            name="incomeLevel"
+            name="income"
             inputProps={{
-              id: 'incomeLevel-required'
+              id: 'income-required'
             }}
             className={classes.selectEmpty}
           >
-            <MenuItem value="lower">Lower</MenuItem>
+            <MenuItem value="working">Working Class</MenuItem>
             <MenuItem value="middle">Middle Class</MenuItem>
             <MenuItem value="upper">Upper Class</MenuItem>
           </Select>
           <FormHelperText>Required</FormHelperText>
         </FormControl>
-
-        <Button type="submit">Submit</Button>
+        <Link to="/stage-1">
+          <Button type="submit">Submit</Button>
+        </Link>
       </form>
     </Card>
   )

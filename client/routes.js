@@ -14,7 +14,27 @@ class Routes extends Component {
     return (
       <Switch>
         <Route exact path="/profile" component={ProfilePage} />
-        <Route exact path="/stage-one" component={SingleStage} />
+        <Route
+          exact
+          path="/stage-1"
+          render={props => (
+            <SingleStage {...props} topic="Where You'll Live" stage="1" />
+          )}
+        />
+        <Route
+          exact
+          path="/stage-2"
+          render={props => (
+            <SingleStage {...props} topic="What You'll Make" stage="2" />
+          )}
+        />
+        <Route
+          exact
+          path="/stage-3"
+          render={props => (
+            <SingleStage {...props} topic="How You'll Live" stage="3" />
+          )}
+        />
         <Route component={GameBoard} />
       </Switch>
     )

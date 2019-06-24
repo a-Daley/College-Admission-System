@@ -5,31 +5,36 @@ import history from '../history'
  * ACTION TYPES
  */
 const GET_STATS = 'GET_STATS'
+const GOT_DESCRIPTION = 'GOT_DESCRIPTION'
 
 /**
  * INITIAL STATE
  */
-const defaultStats = {
+const defaultProfile = {
   age: 0,
   gender: '',
   incomeLevel: '',
   collegeTier: 0,
   race: '',
-  success: 100
+  success: 100,
+  description: ''
 }
 
 /**
  * ACTION CREATORS
  */
 export const getStats = stats => ({type: GET_STATS, stats})
-const removeUser = () => ({type: REMOVE_USER})
+export const gotDescription = description => ({
+  type: GOT_DESCRIPTION,
+  description
+})
 
 /**
  * THUNK CREATORS
  */
-export const me = () => async dispatch => {
+export const getDescription = college => async dispatch => {
   try {
-    const res = await axios.get('/auth/me')
+    const res = await axios.get(`/api/stage-one?=${college}`)
     dispatch(getUser(res.data || defaultUser))
   } catch (err) {
     console.error(err)
@@ -65,7 +70,7 @@ export const logout = () => async dispatch => {
 /**
  * REDUCER
  */
-export default function(state = defaultStats, action) {
+export default function(state = defaultProfile, action) {
   switch (action.type) {
     case GET_STATS:
       return {

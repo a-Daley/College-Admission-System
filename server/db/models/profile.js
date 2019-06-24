@@ -2,18 +2,16 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const Profile = db.define('profile', {
-  stage: {
-    type: Sequelize.ENUM('one', 'two', 'three', 'four', 'five')
-  },
   age: {
-    type: Sequelize.ENUM('20', '30', '40', '50', '60', '70')
+    type: Sequelize.ARRAY(Sequelize.STRING)
   },
   race: {
     type: Sequelize.ENUM(
       'Black/African-American',
       'White/Caucasian',
       'Native American',
-      'Hispanic/Latino'
+      'Hispanic/Latino',
+      'Pacific Islander/Asian-American'
     )
   },
   gender: {
@@ -28,9 +26,20 @@ const Profile = db.define('profile', {
     )
   },
   income: {
-    type: Sequelize.ENUM('lower', 'middle', 'upper')
+    type: Sequelize.ENUM('working', 'middle', 'upper')
   },
-  description: {type: Sequelize.TEXT}
+  stage1: {type: Sequelize.TEXT},
+  stage2: {type: Sequelize.TEXT},
+  stage3: {type: Sequelize.TEXT}
 })
+
+Profile.getDescription = async college => {
+  const profiles = await Profile.findAll({
+    where: {
+      collegeTier: college
+    }
+  })
+  return profiles[0].description
+}
 
 module.exports = Profile
