@@ -69,9 +69,12 @@ const ProfilePage = props => {
             inputProps={{id: 'age-required'}}
             className={classes.selectEmpty}
           >
-            <MenuItem value={20}>10</MenuItem>
-            <MenuItem value={20}>20</MenuItem>
-            <MenuItem value={30}>30</MenuItem>
+            <MenuItem value="20">"20 - 29"</MenuItem>
+            <MenuItem value="30">"30 - 39"</MenuItem>
+            <MenuItem value="40">"40 - 49"</MenuItem>
+            <MenuItem value="50">"50 - 59"</MenuItem>
+            <MenuItem value="60">"60 - 69"</MenuItem>
+            <MenuItem value="70">"70 - 79"</MenuItem>
           </Select>
           <FormHelperText>Required</FormHelperText>
         </FormControl>
@@ -85,11 +88,13 @@ const ProfilePage = props => {
             inputProps={{id: 'race-required'}}
             className={classes.selectEmpty}
           >
-            <MenuItem value="African-American">
-              Black/ African-American
+            <MenuItem value="African-American">Black/African-American</MenuItem>
+            <MenuItem value="White">White/Caucasian</MenuItem>
+            <MenuItem value="Asian-American">
+              Pacific Islander/Asian-American
             </MenuItem>
-            <MenuItem value="White">White</MenuItem>
-            <MenuItem value="Asian-American">Asian-American</MenuItem>
+            <MenuItem value="Asian-American">Native American</MenuItem>
+            <MenuItem value="Hispanic/Latino">Hispanic/Latino</MenuItem>
           </Select>
           <FormHelperText>Required</FormHelperText>
         </FormControl>
@@ -107,14 +112,13 @@ const ProfilePage = props => {
           >
             <MenuItem value="female">Female</MenuItem>
             <MenuItem value="male">Male</MenuItem>
-            <MenuItem value="other">Other</MenuItem>
           </Select>
           <FormHelperText>Required</FormHelperText>
         </FormControl>
 
         <FormControl required className={`${classes.formControl} content`}>
           <InputLabel htmlFor="collegeTier-required">
-            College Ranking
+            Type of College
           </InputLabel>
           <Select
             value={values.collegeTier}
@@ -125,15 +129,18 @@ const ProfilePage = props => {
             }}
             className={classes.selectEmpty}
           >
-            <MenuItem value={5}>Top 5</MenuItem>
-            <MenuItem value={10}>Top 50</MenuItem>
-            <MenuItem value={100}>Top 100</MenuItem>
+            <MenuItem value="elite college">Elite Private College</MenuItem>
+            <MenuItem value="state university">"state university"</MenuItem>
+            <MenuItem value="community college">"community college"</MenuItem>
+            <MenuItem value="online college">"online college"</MenuItem>
           </Select>
           <FormHelperText>Required</FormHelperText>
         </FormControl>
 
         <FormControl required className={`${classes.formControl} content`}>
-          <InputLabel htmlFor="incomeLevel-required">Income Band</InputLabel>
+          <InputLabel htmlFor="incomeLevel-required">
+            Parents' Income
+          </InputLabel>
           <Select
             value={values.incomeLevel}
             onChange={handleChange}
@@ -144,8 +151,8 @@ const ProfilePage = props => {
             className={classes.selectEmpty}
           >
             <MenuItem value="lower">Lower</MenuItem>
-            <MenuItem value="middle class">Middle Class</MenuItem>
-            <MenuItem value="upper class">Upper Class</MenuItem>
+            <MenuItem value="middle">Middle Class</MenuItem>
+            <MenuItem value="upper">Upper Class</MenuItem>
           </Select>
           <FormHelperText>Required</FormHelperText>
         </FormControl>

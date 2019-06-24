@@ -1,18 +1,59 @@
 'use strict'
 
 const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {Profile} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
 
-  const users = await Promise.all([
-    User.create({email: 'cody@email.com', password: '123'}),
-    User.create({email: 'murphy@email.com', password: '123'})
+  const profiles = await Promise.all([
+    Profile.create({
+      stage: 'one',
+      collegeTier: 'elite college',
+      race: 'Black/African-American',
+      age: '20',
+      gender: 'male',
+      income: 'lower',
+      description:
+        'After graduating, you move 700 miles away from your university.'
+    }),
+
+    Profile.create({
+      stage: 'one',
+      collegeTier: 'state university',
+      race: 'Black/African-American',
+      age: '20',
+      gender: 'male',
+      income: 'middle',
+      description:
+        'After graduating, you move 700 miles away from your university.'
+    }),
+
+    Profile.create({
+      stage: 'one',
+      collegeTier: 'community college',
+      race: 'White/Caucasian',
+      age: '20',
+      gender: 'male',
+      income: 'middle',
+      description:
+        'After graduating, you move 700 miles away from your university.'
+    }),
+
+    Profile.create({
+      stage: 'one',
+      collegeTier: 'online college',
+      race: 'Hispanic/Latino',
+      age: '20',
+      gender: 'male',
+      income: 'middle',
+      description:
+        'After graduating, you move 700 miles away from your university.'
+    })
   ])
 
-  console.log(`seeded ${users.length} users`)
+  console.log(`seeded ${profiles.length} profiles`)
   console.log(`seeded successfully`)
 }
 
