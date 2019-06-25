@@ -7,19 +7,22 @@ The college admissions process has been a hot topic, likely because of how inter
 ## Tech/framework used
 Includes Node.js, Express.js, React/Redux.js, Material UI
 
+## Screenshots
+
+![Homepage](https://user-images.githubusercontent.com/22922907/60116561-4608d680-9746-11e9-989c-6bf90c1068e5.png)
+![Profile page](https://user-images.githubusercontent.com/22922907/60116563-4903c700-9746-11e9-8c15-70ae9e167cee.png)
+![Results](https://user-images.githubusercontent.com/22922907/60116567-4b662100-9746-11e9-920d-8a198774d96d.png)
+
 ## Installation
 To run this project locally:
-`npm install`
-`npm run seed`
-`npm run start-dev`
+- `npm install`
+- `npm run seed`
+- `npm run start-dev`
 
 or visit the deployed version on Heroku at https://admissions-system.herokuapp.com/
 
 ## How to use?
-To start, hit the `Start` button. Then, fill in any profile combo of your choosing and then walk through the results. End the game and start all over again with a new profile
-
-## Credits
-Give proper credits. This could be a link to any repo which inspired you to build this project, any blogposts or links to people who contrbuted in this project. 
+To start, hit the `Start` button. Then, fill in any profile combo of your choosing and then walk through the results. End the game and start all over again with a new profile.
 
 
 ## License
