@@ -1,26 +1,41 @@
 import axios from 'axios'
-import history from '../history'
 
 /**
  * ACTION TYPES
  */
+const GOT_STAGES = 'GOT_STAGES'
 const SET_STAGE = 'SET_STAGE'
-const GOT_TEXT = 'GOT_TEXT'
 
 /**
  * INITIAL STATE
  */
 const defaultStage = {
   currentNum: 0,
-  text: ''
+  stage1: '',
+  stage2: '',
+  stage3: ''
 }
 
-export const gotStageOneText = text => ({type: GOT_TEXT, text})
+export const gotStages = (stage1, stage2, stage3) => ({
+  type: GOT_STAGES,
+  stage1,
+  stage2,
+  stage3
+})
+export const setStage = currentNum => ({
+  type: SET_STAGE,
+  currentNum
+})
 
-export const getStageOneText = college => async dispatch => {
+export const getStages = values => async dispatch => {
   try {
-    const res = await axios.get(`/api/stage-one?college=${college}`)
-    dispatch(gotStageOneText(res.data))
+    const {data} = await axios.get(
+      `/api/profile/stages?college=${values.collegeTier}&race=${
+        values.race
+      }&gender=${values.gender}&income=${values.income}`
+    )
+    let {stage1, stage2, stage3} = data
+    dispatch(gotStages(stage1, stage2, stage3))
   } catch (err) {
     console.error(err)
   }
@@ -28,10 +43,12 @@ export const getStageOneText = college => async dispatch => {
 
 export default function(state = defaultStage, action) {
   switch (action.type) {
-    case GOT_TEXT:
+    case GOT_STAGES:
       return {
         ...state,
-        text: action.text
+        stage1: action.stage1,
+        stage2: action.stage2,
+        stage3: action.stage3
       }
     case SET_STAGE:
       return {

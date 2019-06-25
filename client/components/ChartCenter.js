@@ -26,7 +26,7 @@ class ChartCenter extends Component {
     return (
       <g>
         <circle
-          title="test"
+          title="College Admissions"
           cx={origin.x}
           cy={origin.y}
           r={innerRadius}
@@ -40,7 +40,7 @@ class ChartCenter extends Component {
           strokeWidth="0.5px"
           dy=".3em"
         >
-          Look!
+          College Admissions
         </text>
       </g>
     )

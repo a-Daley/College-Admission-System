@@ -10,27 +10,12 @@ import {
 import ChartCenter from './ChartCenter'
 import CenterLabel from './CenterLabel'
 
-const characterData = [
-  {
-    strength: 1,
-    intelligence: 250,
-    luck: 1,
-    stealth: 40,
-    charisma: 50,
-    income: 15,
-    race: 5,
-    location: 20,
-    factor: 8,
-    factor7: 9
-  }
-]
-
 class MainChart extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: this.processData(characterData),
-      maxima: this.getMaxima(characterData)
+      data: this.processData(this.props.data),
+      maxima: this.getMaxima(this.props.data)
     }
   }
 
@@ -56,6 +41,7 @@ class MainChart extends React.Component {
   }
 
   render() {
+    let characterData = this.props.data
     return (
       <VictoryChart
         polar
@@ -100,22 +86,21 @@ class MainChart extends React.Component {
               key={i}
               dependentAxis
               style={{
-                axisLabel: {padding: 10},
+                axisLabel: {padding: 20},
                 axis: {stroke: 'none'},
                 grid: {stroke: 'grey', strokeWidth: 0.25, opacity: 0.5}
               }}
               tickLabelComponent={<VictoryLabel labelPlacement="vertical" />}
-              labelPlacement="perpendicular"
+              labelPlacement="parallel"
               axisValue={i + 1}
               label={key}
-              //tickFormat={(t) => Math.ceil(this.state.maxima[key])}
               tickFormat={() => ''}
               tickValues={[0, 0.25, 0.5, 0.75]}
             />
           )
         })}
         <VictoryPolarAxis
-          labelPlacement="parallel"
+          labelPlacement="vertical"
           tickFormat={() => ''}
           style={{
             axis: {stroke: 'none'},

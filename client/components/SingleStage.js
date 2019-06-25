@@ -8,73 +8,59 @@ import {
   CardActions
 } from '@material-ui/core'
 import {connect} from 'react-redux'
-import {getStageOneText} from '../store'
 import ProgressBar from './ProgressBar'
 
-class SingleStage extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      description: ''
-    }
+const SingleStage = props => {
+  const classes = useStyles()
+  const {currentNum, topic} = props
+  let stageInfo
+  if (currentNum === 1) {
+    stageInfo = props.stage1
+  } else if (currentNum === 2) {
+    stageInfo = props.stage2
+  } else if (currentNum === 3) {
+    stageInfo = props.stage3
   }
 
-  async componentDidMount() {
-    if (this.props.stage === 1) {
-      await this.props.getStageOneText(this.props.stats.collegeTier)
-    } else {
-      await this.props.getLaterStagesText(this.props.stats)
-    }
-    this.setState({description: this.props.text})
-  }
-
-  render() {
-    const classes = useStyles()
-    const {topic, stage} = this.props
-
-    return (
-      <div>
-        {!this.state.description.length ? (
-          <ProgressBar />
-        ) : (
-          <div className="content">
-            <Card raised={true} className={classes.card}>
-              <CardContent>
-                <Typography
-                  className={classes.title}
-                  color="textSecondary"
-                  gutterBottom
-                >
-                  `Stage ${stage}:${topic}`
-                </Typography>
-                <Typography variant="body2" component="p">
-                  {this.state.description}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="medium">Learn More</Button>
-              </CardActions>
-            </Card>
-          </div>
-        )}
-      </div>
-    )
-  }
+  console.log({props})
+  return (
+    <div>
+      {currentNum === 0 ? (
+        <ProgressBar />
+      ) : (
+        <div className="content">
+          <Card raised={true} className={classes.card}>
+            <CardContent>
+              <Typography
+                className={classes.title}
+                color="textSecondary"
+                gutterBottom
+                variant="h1"
+              >
+                {topic}
+              </Typography>
+              <Typography variant="body1">{stageInfo}</Typography>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+    </div>
+  )
 }
 
 const mapStateToProps = state => ({
-  stats: () => state.stats,
-  text: () => state.stage.text
-})
-
-const mapDispatchToProps = dispatch => ({
-  getStageOneText: college => dispatch(getStageOneText(college))
+  stats: state.stats,
+  currentNum: state.stage.currentNum,
+  stage1: state.stage.stage1,
+  stage2: state.stage.stage2,
+  stage3: state.stage.stage3
 })
 
 const useStyles = makeStyles({
   card: {
     minWidth: 500,
-    backgroundColor: 'yellow'
+    minHeight: 500,
+    backgroundColor: '#94A6AB'
   },
   title: {
     fontSize: 14
@@ -84,4 +70,4 @@ const useStyles = makeStyles({
   }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SingleStage)
+export default connect(mapStateToProps)(SingleStage)

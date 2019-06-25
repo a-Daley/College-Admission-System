@@ -1,10 +1,6 @@
-* {
-  color: rgb(100, 84, 78);
-}
-
 .container {
   display: flex;
-  background-color: #e6e6e6;
+  background-color: #dbd3d8;
   flex-direction: column;
 }
 
@@ -15,6 +11,7 @@
 }
 
 .sidebar {
+  position: relative;
   padding: 10px;
   width: 37%;
   justify-self: left;
@@ -22,7 +19,7 @@
 
 .gameboard {
   width: 100%;
-  align-self: center;
+  align-self: flex-start;
 }
 
 body {

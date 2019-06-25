@@ -8,20 +8,22 @@ import {
   Button,
   Typography
 } from '@material-ui/core/'
-import MenuIcon from '@material-ui/icons/Menu'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
-    color: 'white'
+    backgroundColor: '#1B503E'
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: 10,
     color: 'white'
   },
   title: {
     flexGrow: 1,
     color: 'white'
+  },
+  navbar: {
+    colorPrimary: 'yellow'
   }
 }))
 
@@ -30,21 +32,15 @@ const Nav = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="Home"
-          >
-            <MenuIcon />
-          </IconButton>
+      <AppBar position="static" className={classes.root}>
+        <Toolbar className={classes.navbar}>
           <Typography variant="h6" className={classes.title}>
             The Game of Life After College
           </Typography>
           <Link to="/">
-            <Button color="secondary">Home</Button>
+            <Button varient="text" size="large" color="white">
+              Home
+            </Button>
           </Link>
         </Toolbar>
       </AppBar>

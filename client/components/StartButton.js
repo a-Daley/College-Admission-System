@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography'
 const image = {
   url:
     'https://cdna.artstation.com/p/assets/images/images/012/808/320/large/miguel-gonzalez-cuq-campus-final.jpg?1536630914',
-  title: 'Start Game',
+  title: 'Start',
   width: '100%'
 }
 
@@ -20,10 +20,10 @@ const useStyles = makeStyles(theme => ({
   },
   image: {
     position: 'relative',
-    height: 200,
+    height: 500,
     [theme.breakpoints.down('xs')]: {
       width: '100% !important', // Overrides inline-style
-      height: 100
+      height: 500
     },
     '&:hover, &$focusVisible': {
       zIndex: 1,
@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
         opacity: 0
       },
       '& $imageTitle': {
-        border: '4px solid currentColor'
+        border: '4px solid #DBD3D8'
       }
     }
   },
@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    color: theme.palette.common.white
+    color: '#DBD3D8'
   },
   imageSrc: {
     position: 'absolute',
@@ -73,7 +73,7 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) +
       6}px`,
-    colorPrimary: theme.palette.common.white
+    color: '#ffffff'
   },
   imageMarked: {
     height: 3,
@@ -116,7 +116,7 @@ const StartButton = () => {
               className={classes.imageTitle}
               component="span"
               variant="h6"
-              color="error"
+              color="#DBD3D8"
             >
               {image.title}
               <span className={classes.imageMarked} />

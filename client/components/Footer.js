@@ -16,6 +16,8 @@ const Footer = () => {
   function handleExpandClick() {
     setExpanded(!expanded)
   }
+
+  const bull = <span className={classes.bullet}>•</span>
   return (
     <Card>
       <CardActions disableSpacing>
@@ -29,29 +31,86 @@ const Footer = () => {
         >
           <ExpandMoreIcon />
         </IconButton>
-        <Typography variant="subtitle1">Methodology & Data</Typography>
+        <Typography variant="subtitle1">Data Sources</Typography>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>
-            The Atlantic, Does It Matter Where You Go to College ?
-            "https://www.theatlantic.com/ideas/archive/2018/12/does-it-matter-where-you-go-college/577816/
+            {bull} <b>The Atlantic</b>,{' '}
+            <em>
+              <a href="https://www.theatlantic.com/ideas/archive/2018/12/does-it-matter-where-you-go-college/577816/">
+                Does It Matter Where You Go to College?
+              </a>
+            </em>
           </Typography>
           <Typography paragraph>
-            Emsi, 'How Your School Affects Where You Live' https:
-            //www.economicmodeling.com/how-your-school-affects-where-you-live/
+            {bull} <b>Emsi</b>,{' '}
+            <em>
+              <a
+                href="https:
+            //www.economicmodeling.com/how-your-school-affects-where-you-live/"
+              >
+                How Your School Affects Where You Live
+              </a>
+            </em>
           </Typography>
+
           <Typography paragraph>
-            Add rice and stir very gently to distribute. Top with artichokes and
-            peppers, and cook without stirring, until most of the liquid is
-            absorbed, 15 to 18 minutes. Reduce heat to medium-low, add reserved
-            shrimp and mussels, tucking them down into the rice, and cook again
-            without stirring, until mussels have opened and rice is just tender,
-            5 to 7 minutes more. (Discard any mussels that don’t open.)
+            {bull} <b>Inc Magazine</b>,{' '}
+            <em>
+              <a href="https://www.inc.com/dorcas-cheng-tozun/prestigious-colleges-dont-lead-to-happiness-success.html">
+                This Is What Actually Matters for Your Kids' Future Success
+              </a>
+            </em>
           </Typography>
-          <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then
-            serve.
+
+          <Typography paragraph>
+            {bull} <b>The National Bureau of Economic Rsearch</b>,{' '}
+            <em>
+              <a href="https://www.theatlantic.com/ideas/archive/2018/12/does-it-matter-where-you-go-college/577816/">
+                Does It Matter Where You Go to College?
+              </a>
+            </em>
+          </Typography>
+
+          <Typography paragraph>
+            {bull}
+            <b>The Wall Street Journal</b>,{' '}
+            <em>
+              <a href="https://www.wsj.com/articles/the-student-debt-crisis-hits-hardest-at-historically-black-colleges-11555511327">
+                The Student-Debt Crisis Hits Hardest at Historically Black
+                Colleges
+              </a>
+            </em>
+          </Typography>
+
+          <Typography paragraph>
+            {bull} <b>The National Bureau of Economic Rsearch</b>,{' '}
+            <em>
+              <a href="https://www.nber.org/papers/w15339">
+                How large are returns to schooling? Hint: Money isn't everything
+              </a>
+            </em>
+          </Typography>
+
+          <Typography paragraph>
+            {bull} <b>The MIT Press Journals</b>,{' '}
+            <em>
+              <a href="https://www.mitpressjournals.org/doi/10.1162/rest.91.4.717">
+                The MIT Press Journals, The Effect of Attending the Flagship
+                State University on Earnings: A Discontinuity-Based Approach
+              </a>
+            </em>
+          </Typography>
+
+          <Typography paragraph>
+            {bull} <b>The National Bureau of Economic Rsearch</b>,{' '}
+            <em>
+              <a href="https://www.nber.org/papers/w23618">
+                Mobility Report Cards: The Role of Colleges in Intergenerational
+                Mobility
+              </a>
+            </em>
           </Typography>
         </CardContent>
       </Collapse>

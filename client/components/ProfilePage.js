@@ -1,7 +1,8 @@
 import React from 'react'
 import {getStats} from '../store/profile-stats'
+import {setStage, getStages} from '../store/stage'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {Link, history} from 'react-router-dom'
 import {
   Card,
   InputLabel,
@@ -48,6 +49,9 @@ const ProfilePage = props => {
   function handleSubmit(event) {
     event.preventDefault()
     props.setStats(values)
+    props.getStages(values)
+    props.setStage(props.currentStage + 1)
+    props.history.push('/stage-1')
   }
 
   return (
@@ -149,16 +153,20 @@ const ProfilePage = props => {
           </Select>
           <FormHelperText>Required</FormHelperText>
         </FormControl>
-        <Link to="/stage-1">
-          <Button type="submit">Submit</Button>
-        </Link>
+        <Button type="submit">Submit</Button>
       </form>
     </Card>
   )
 }
 
-const mapDispatchToProps = dispatch => ({
-  setStats: stats => dispatch(getStats(stats))
+const mapStateToProps = state => ({
+  currentStage: state.stage.currentNum
 })
 
-export default connect(null, mapDispatchToProps)(ProfilePage)
+const mapDispatchToProps = dispatch => ({
+  setStats: stats => dispatch(getStats(stats)),
+  getStages: stats => dispatch(getStages(stats)),
+  setStage: num => dispatch(setStage(num))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage)

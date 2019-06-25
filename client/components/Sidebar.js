@@ -5,6 +5,36 @@ import Typography from '@material-ui/core/Typography'
 import {makeStyles} from '@material-ui/core/styles'
 import MainChart from './MainChart'
 
+const upstreamData = [
+  {
+    'income inequality': 1,
+    unemployment: 1,
+    testing: 1,
+    stealth: 1,
+    'state funding': 1,
+    'affirmative action': 1,
+    race: 1,
+    location: 1,
+    factor: 1,
+    factor7: 1
+  }
+]
+
+const downstreamData = [
+  {
+    'marriage rates': 1,
+    'population rates': 1,
+    'national debt': 1,
+    health: 1,
+    charisma: 1,
+    income: 1,
+    race: 1,
+    location: 1,
+    unemployment: 1,
+    'wealth gap': 1
+  }
+]
+
 const Sidebar = () => {
   const classes = useStyles()
 
@@ -16,11 +46,14 @@ const Sidebar = () => {
             className={classes.title}
             color="textSecondary"
             gutterBottom
+            variant="h2"
           >
-            The Big Picture: How College Admissions <b>Is Affected</b> By Other
-            System
+            <b>
+              The Big Picture: How College Admissions Is Affected By Other
+              System
+            </b>
           </Typography>
-          <MainChart />
+          <MainChart data={upstreamData} />
         </CardContent>
       </Card>
       <br />
@@ -31,10 +64,11 @@ const Sidebar = () => {
             className={classes.title}
             color="textSecondary"
             gutterBottom
+            variant="h2"
           >
-            The Big Picture: How College Admissions <b>Affects</b> Other Systems
+            <b>The Big Picture: How College Admissions Affects Other Systems</b>
           </Typography>
-          <MainChart />
+          <MainChart data={downstreamData} />
         </CardContent>
       </Card>
     </div>
