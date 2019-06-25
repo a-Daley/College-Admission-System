@@ -10,26 +10,20 @@ const upstreamData = [
     'income inequality': 1,
     unemployment: 1,
     testing: 1,
-    stealth: 1,
     'state funding': 1,
     'affirmative action': 1,
     race: 1,
-    location: 1,
-    factor: 1,
-    factor7: 1
+    location: 1
   }
 ]
 
 const downstreamData = [
   {
     'marriage rates': 1,
-    'population rates': 1,
+    'population growth': 1,
     'national debt': 1,
     health: 1,
-    charisma: 1,
-    income: 1,
-    race: 1,
-    location: 1,
+    innovation: 1,
     unemployment: 1,
     'wealth gap': 1
   }

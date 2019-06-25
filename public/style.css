@@ -6,7 +6,7 @@
 
 .content {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -14,7 +14,10 @@
   position: relative;
   padding: 10px;
   width: 37%;
-  justify-self: left;
+  border-style: double;
+  border-color: goldenrod;
+  max-width: 350px;
+  overflow-y: auto;
 }
 
 .gameboard {

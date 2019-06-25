@@ -18,14 +18,17 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    backgroundImage:
+      'https://i.pinimg.com/originals/bd/3c/da/bd3cdadf9d8562365c1b3f2db937616c.jpg'
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120
+    minWidth: 350
   },
   selectEmpty: {
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(2),
+    minWidth: 350
   }
 }))
 
@@ -55,7 +58,7 @@ const ProfilePage = props => {
   }
 
   return (
-    <Card>
+    <Card className="profile-content">
       <form className={classes.root} autoComplete="off" onSubmit={handleSubmit}>
         <FormControl required className={classes.formControl}>
           <InputLabel htmlFor="age-required">Age</InputLabel>

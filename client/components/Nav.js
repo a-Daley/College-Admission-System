@@ -2,7 +2,6 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {
   makeStyles,
-  IconButton,
   Toolbar,
   AppBar,
   Button,
@@ -12,7 +11,8 @@ import {
 const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
-    backgroundColor: '#1B503E'
+    backgroundColor: '#1B503E',
+    color: 'white'
   },
   menuButton: {
     marginRight: 10,
@@ -21,9 +21,6 @@ const useStyles = makeStyles(() => ({
   title: {
     flexGrow: 1,
     color: 'white'
-  },
-  navbar: {
-    colorPrimary: 'yellow'
   }
 }))
 

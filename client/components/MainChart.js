@@ -100,7 +100,7 @@ class MainChart extends React.Component {
           )
         })}
         <VictoryPolarAxis
-          labelPlacement="vertical"
+          labelPlacement="parallel"
           tickFormat={() => ''}
           style={{
             axis: {stroke: 'none'},
